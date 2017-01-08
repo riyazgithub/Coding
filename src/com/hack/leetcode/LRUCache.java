@@ -1,4 +1,4 @@
-package com.hack;
+package com.hack.leetcode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,9 +12,9 @@ import java.util.List;
  set(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
  */
 public class LRUCache {
-    int size;
-    List <Integer> cacheKey;
-    HashMap<Integer, Integer> hm = new HashMap<>();
+    private int size;
+    private List <Integer> cacheKey;
+    private HashMap<Integer, Integer> hm = new HashMap<>();
     public LRUCache(int capacity) {
 
         this.size = capacity;
@@ -23,10 +23,10 @@ public class LRUCache {
     }
 
     public int get(int key) {
-        updateCacheKey(key);
         if(hm.get(key) == null) {
             return -1;
         } else {
+            updateCacheKey(key);
             return hm.get(key);
         }
     }
@@ -55,18 +55,19 @@ public class LRUCache {
     }
 
     public static void main(String[] args) {
-        int capacity = 5;
+        int capacity = 1;
         LRUCache lruCache = new LRUCache(capacity  );
         //lruCache.cacheKey.add(1); lruCache.cacheKey.add(2); lruCache.cacheKey.add(3); lruCache.cacheKey.add(0,4); lruCache.cacheKey.add(5);lruCache.cacheKey.add(6);
-        for(int i =0 ; i<capacity; i++ ) {
-            lruCache.set(i,i);
-        }
-
-        System.out.println("cachekey " + lruCache.cacheKey);
-        lruCache.get(3);
-        System.out.println("cachekey " + lruCache.cacheKey);
-        lruCache.get(2);
-        System.out.println("cachekey " + lruCache.cacheKey + lruCache.get(9));
+//        for(int i =0 ; i<capacity; i++ ) {
+//            lruCache.set(i,i);
+//        }
+        lruCache.set(2,1);
+        System.out.println("cachekey " + lruCache.cacheKey + lruCache.hm);
+        System.out.println("cachekey " + lruCache.cacheKey + lruCache.get(2));
+        lruCache.set(3,2);
+        System.out.println("cachekey " + lruCache.cacheKey + lruCache.hm);
+        System.out.println("cachekey " + lruCache.cacheKey + lruCache.get(2));
+        System.out.println("cachekey " + lruCache.cacheKey + lruCache.get(3));
 
     }
 }
