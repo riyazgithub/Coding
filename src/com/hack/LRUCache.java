@@ -66,8 +66,7 @@ public class LRUCache {
         lruCache.get(3);
         System.out.println("cachekey " + lruCache.cacheKey);
         lruCache.get(2);
-        System.out.println("cachekey " + lruCache.cacheKey + lruCache.hm.get(9));
-
+        System.out.println("cachekey " + lruCache.cacheKey + lruCache.get(9));
 
     }
 }
