@@ -48,9 +48,9 @@ public class LRUCache {
         cacheKey.add(0,key);
         // check if there aare overflows and delete the entry in hm
         if(cacheKey.size() > size) {
-            int removeKey = cacheKey.get(5);
+            int removeKey = cacheKey.get(size);
             hm.remove(removeKey);
-            cacheKey.remove(5);
+            cacheKey.remove(size);
         }
     }
 
