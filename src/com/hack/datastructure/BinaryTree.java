@@ -24,6 +24,15 @@ public class BinaryTree {
         printTree(pointer.right);
     }
 
+    public void printTreeWithLevel(TreeNode pointer,int level) {
+        if(pointer == null) {
+            return;
+        }
+        printTreeWithLevel(pointer.left, level+1);
+        System.out.print("v:" + pointer.val + " l: " + level);
+        printTreeWithLevel(pointer.right, level+1);
+    }
+
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
         // define head
