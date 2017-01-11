@@ -1,3 +1,5 @@
+package com.hack.datastructure;
+
 /**
  * Created by rafthab on 5/16/16.
  */
