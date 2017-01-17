@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f16d3e32-8bdf-42c3-845f-fcd4fbb346dd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Coding/com/hack/snippets/identifyStringGroups.class" afterPath="$PROJECT_DIR$/out/production/Coding/com/hack/snippets/identifyStringGroups.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hack/leetcode/NumberofIslands.java" afterPath="$PROJECT_DIR$/src/com/hack/leetcode/NumberofIslands.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hack/snippets/identifyStringGroups.java" afterPath="$PROJECT_DIR$/src/com/hack/snippets/identifyStringGroups.java" />
     </list>
     <list id="40131dd5-58de-499f-9d51-84d2a40226be" name="Rejected commit: Default" comment="Partially done yay not bad&#10;More additions&#10;Testcase changes&#10;Adding inefficient code works though so i am going to move on mostly&#10;Refactoring project" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +21,8 @@
       <file leaf-file-name="NumberofIslands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/hack/leetcode/NumberofIslands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="46" column="119" lean-forward="false" selection-start-line="46" selection-start-column="119" selection-end-line="46" selection-end-column="119" />
+            <state relative-caret-position="408">
+              <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -609,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484688641049</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implementing number of islands&#10;this should be a good start i think&#10;getting an idea">
+      <created>1484691711906</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1484691711906</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -662,7 +666,8 @@
     <MESSAGE value="Partially done yay not bad&#10;More additions&#10;Testcase changes&#10;Adding inefficient code works though so i am going to move on mostly&#10;Refactoring project&#10;Committing so far" />
     <MESSAGE value="Adding first automated script to generate common ldap classes with the corresponding ldap environment it should be run&#10;" />
     <MESSAGE value="Implementing number of islands&#10;this should be a good start i think&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing number of islands&#10;this should be a good start i think&#10;" />
+    <MESSAGE value="Implementing number of islands&#10;this should be a good start i think&#10;getting an idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing number of islands&#10;this should be a good start i think&#10;getting an idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1080,8 +1085,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hack/leetcode/NumberofIslands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="46" column="119" lean-forward="false" selection-start-line="46" selection-start-column="119" selection-end-line="46" selection-end-column="119" />
+        <state relative-caret-position="408">
+          <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
           <folding />
         </state>
       </provider>
