@@ -24,13 +24,19 @@ public class identifyStringGroups {
         List<String> forestList = getFileContetnt(FOREST);
         HashMap <String, List<String>> hm =  new HashMap<>();
 
-        populateHM(simpleList, hm, "simpleldap");
-        populateHM(dominoList, hm, "dominoldao");
-        populateHM(forestList, hm, "forestldap");
+        populateHM(simpleList, hm, "TestGroups.Environment.SIMPLEADLDAP");
+        populateHM(dominoList, hm, "TestGroups.Environment.DOMNIOLDAP");
+        populateHM(forestList, hm, "TestGroups.Environment.FORESTADLDAP");
 
 
         for (String key : hm.keySet()) {
-            System.out.println("key: " + key + " value: " + hm.get(key));
+
+            String result = "@Test (groups = {TestGroups.Team.RED, TestGroups.Feature.LDAP";
+            for(String env : hm.get(key)) {
+                result += ", " + env;
+            }
+            result += "})";
+            System.out.println("key: " + key + " value: " + result);
         }
 
     }
