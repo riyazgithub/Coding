@@ -13,7 +13,8 @@ public class GenerateData {
     public static void main(String[] args) {
         GenerateData generateData = new GenerateData();
         List<String> locations = generateData.generateLocations(10);
-        generateData.printList(locations);
+        List<String> courses = generateData.generateCourses(50);
+        generateData.printList(courses);
 
     }
 
@@ -24,7 +25,10 @@ public class GenerateData {
             data += GenerateData.singleQuote + "COURSE-ID-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
             data += GenerateData.singleQuote + "course-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
             data += GenerateData.singleQuote + "course-name-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
-
+            data += GenerateData.singleQuote + "LOC-ID-" + getRandomNum(0, 5) + GenerateData.singleQuote + GenerateData.comma;
+            data += GenerateData.singleQuote + generateSource() + GenerateData.singleQuote + GenerateData.comma;
+            data += GenerateData.singleQuote + "INSTCOURSEID"+ String.valueOf(i) + GenerateData.singleQuote;
+            courses.add(data);
         }
         return courses;
 
@@ -45,7 +49,8 @@ public class GenerateData {
 
     private String generateSource() {
         String[] source = {"Manual","CSV"};
-        int index = getRandomNum(0,2);
+        int index;
+        index = getRandomNum(0,2);
         return source[index];
     }
 
