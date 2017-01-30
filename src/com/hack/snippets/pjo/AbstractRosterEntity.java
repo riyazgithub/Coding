@@ -1,6 +1,8 @@
 package com.hack.snippets.pjo;
 
 
+import com.hack.snippets.GenerateData;
+
 public class AbstractRosterEntity {
 
     private String name;
@@ -18,6 +20,13 @@ public class AbstractRosterEntity {
     public AbstractRosterEntity(final String name, final String uniqueIdentifier) {
         this.name = name;
         this.unique_identifier = uniqueIdentifier;
+    }
+
+    public AbstractRosterEntity(final String name, final String source, final String uniqueIdentifier, final String source_system_identifier) {
+        this.name = name;
+        this.unique_identifier = uniqueIdentifier;
+        this.source = source;
+        this.source_system_identifier = source_system_identifier;
     }
 
     /**
@@ -76,5 +85,12 @@ public class AbstractRosterEntity {
         this.unique_identifier = unique_identifier;
     }
 
-
+    public String toSqlString() {
+        String data = new String();
+        data += GenerateData.singleQuote + this.getUnique_identifier() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getName() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getSource() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getSource_system_identifier() + GenerateData.singleQuote;
+        return data;
+    }
 }

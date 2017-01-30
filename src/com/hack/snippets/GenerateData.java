@@ -1,5 +1,9 @@
 package com.hack.snippets;
 
+import com.hack.snippets.pjo.AbstractRosterEntity;
+import com.hack.snippets.pjo.Course;
+import com.hack.snippets.pjo.Location;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,41 +12,32 @@ import java.util.Random;
  * Created by rafthab on 1/29/17.
  */
 public class GenerateData {
-    private static String singleQuote = "\'";
-    private static String comma = ",";
+    public static String singleQuote = "\'";
+    public static String comma = ",";
     public static void main(String[] args) {
         GenerateData generateData = new GenerateData();
-        List<String> locations = generateData.generateLocations(10);
-        List<String> courses = generateData.generateCourses(50);
+        List<AbstractRosterEntity> locations = generateData.generateLocations(10);
+        List<AbstractRosterEntity> courses = generateData.generateCourses(50);
+//        generateData.printList(locations);
         generateData.printList(courses);
 
     }
 
     public List generateCourses(int count) {
-        List<String> courses = new ArrayList<String>();
+        List<AbstractRosterEntity> courses = new ArrayList<AbstractRosterEntity>();
         for(int i=0; i<count; i++) {
-            String data = new String();
-            data += GenerateData.singleQuote + "COURSE-ID-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + "course-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + "course-name-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + "LOC-ID-" + getRandomNum(0, 5) + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + generateSource() + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + "INSTCOURSEID"+ String.valueOf(i) + GenerateData.singleQuote;
-            courses.add(data);
+            Course course = new Course("COURSE-ID-" + String.valueOf(i), "course-" + String.valueOf(i), "course-name-" + String.valueOf(i), "LOC-ID-" + getRandomNum(0, 5), generateSource(), "INSTCOURSEID"+ String.valueOf(i));
+            courses.add(course);
         }
         return courses;
 
     }
 
     public List generateLocations(int count) {
-        List<String> locations = new ArrayList<String>();
+        List<Location> locations = new ArrayList<Location>();
         for(int i =0; i<count; i++) {
-            String data = new String();
-            data += GenerateData.singleQuote + "LOC-ID-" + String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + "LOC NAME "+ String.valueOf(i) + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + generateSource() + GenerateData.singleQuote + GenerateData.comma;
-            data += GenerateData.singleQuote + "INSTLOCID"+ String.valueOf(i) + GenerateData.singleQuote;
-            locations.add(data);
+            Location location = new Location("LOC NAME "+ String.valueOf(i), generateSource(), "LOC-ID-" + String.valueOf(i), "INSTLOCID"+ String.valueOf(i));
+            locations.add(location);
         }
         return locations;
     }
@@ -59,9 +54,9 @@ public class GenerateData {
         return Math.abs(rn.nextInt()) % (end - start);
     }
 
-    private void printList(List<String> toBePrinted) {
-        for (String printLine: toBePrinted
+    private void printList(List<AbstractRosterEntity> toBePrinted) {
+        for (AbstractRosterEntity printLine: toBePrinted
                 )
-            System.out.println(printLine);
+            System.out.println(printLine.toSqlString());
     }
 }
