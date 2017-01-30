@@ -1,5 +1,7 @@
 package com.hack.snippets.pjo;
 
+import com.hack.snippets.GenerateData;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,7 @@ public class Class extends AbstractRosterEntity {
 
     private List<String> instructor_unique_identifiers = new ArrayList<>();
 
-    private Location location;
+    private String location;
 
     private String room;
 
@@ -18,7 +20,26 @@ public class Class extends AbstractRosterEntity {
     public Class() {
 
     }
+    public Class(final String uniqueIdentifier, final String name, final Course course, final List<String> instructor_unique_identifiers, final String location, final String source,  final String source_system_identifier) {
+        super (name, source, uniqueIdentifier, source_system_identifier);
+        this.course = course;
+        this.location = location;
+        this.instructor_unique_identifiers = instructor_unique_identifiers;
+    }
 
+    public String toSqlString() {
+        String data = new String();
+        data += GenerateData.singleQuote + this.getUnique_identifier() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getName() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getCourse().getUnique_identifier() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getInstructor_unique_identifiers().get(0) + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getInstructor_unique_identifiers().get(1) + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getInstructor_unique_identifiers().get(2) + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getLocation() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getSource() + GenerateData.singleQuote + GenerateData.comma;
+        data += GenerateData.singleQuote + this.getSource_system_identifier() + GenerateData.singleQuote;
+        return data;
+    }
     /**
      * @return the course
      */
@@ -50,14 +71,14 @@ public class Class extends AbstractRosterEntity {
     /**
      * @return the location
      */
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
     /**
      * @param location the location to set
      */
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
