@@ -16,15 +16,30 @@ public class GenerateData {
         GenerateData generateData = new GenerateData();
         List<AbstractRosterEntity> locations = generateData.generateLocations(5);
         List<AbstractRosterEntity> courses = generateData.generateCourses(50);
-        List<AbstractRosterEntity> persons = generateData.generatePersons(10);
+        List<AbstractRosterEntity> persons = generateData.generatePersons(50, 10);
+
 //        generateData.printList(locations);
 //        generateData.printList(courses);
 //        generateData.printList(persons);
         List<AbstractRosterEntity> classes = generateData.generateClasses( courses, persons, 50);
-        generateData.printList(classes);
+        List<AbstractRosterEntity> rosters = generateData.generateRosters(classes, persons.size(), classes.size()*3, classes.size());
+        generateData.printList(rosters);
+//        generateData.printList(classes);
 
     }
 
+    public List generateRosters(List<AbstractRosterEntity> courses, int personSize, int count, int batch) {
+        List<AbstractRosterEntity> rosters = new ArrayList<AbstractRosterEntity>();
+        for(int i=0; i< count; i++) {
+            for(int j=0; j<batch; j++) {
+                Rosters roster = new Rosters("ROSTER-ID-"+String.valueOf(i), "CLASS-ID-" + String.valueOf(j), "PERSON-ID-"+String.valueOf(getRandomNum(1, personSize)), generateSource(),
+                        "INSTROSTERID"+ String.valueOf(i));
+                rosters.add(roster);
+                i++;
+            }
+        }
+        return rosters;
+    }
     public List generateClasses(List<AbstractRosterEntity> courses, List<AbstractRosterEntity> persons, int count) {
         List<AbstractRosterEntity> classes = new ArrayList<AbstractRosterEntity>();
         for(int i = 0; i<count; i++) {
@@ -37,27 +52,30 @@ public class GenerateData {
                 instructors.add(null);
             }
             Course course = (Course) courses.get(i);
-            com.hack.snippets.pjo.Class class1 = new com.hack.snippets.pjo.Class("CLASS-ID-1"+String.valueOf(i), "class-" + String.valueOf(i), course, instructors, course.getLocation_id(),
+            com.hack.snippets.pjo.Class class1 = new com.hack.snippets.pjo.Class("CLASS-ID-"+String.valueOf(i), "class-" + String.valueOf(i), course, instructors, course.getLocation_id(),
                     generateSource(), "INSTCLASSID"+ String.valueOf(i));
             classes.add(class1);
         }
         return classes;
     }
 
-    public List generatePersons(int count) {
+    public List generatePersons(int count, int batch) {
         List<AbstractRosterEntity> persons = new ArrayList<AbstractRosterEntity>();
         for(int i=0; i< count; i++) {
-            Person person;
-            if(i < 3 ) {
-                person = new Person("PERSON-ID-1"+String.valueOf(i), "person-" + String.valueOf(i), "person-name-" + String.valueOf(i), "person-middle-" + String.valueOf(i), "person-last-" + String.valueOf(i),
-                        null, "person-name-" + String.valueOf(i)+ "@mitest.org", "person-name-" + String.valueOf(i) + "_student", String.valueOf(getRandomNum(0,9)+1),
-                        "LOC-ID-" + getRandomNum(0, 5), generateSource(), "INSTPERSONID"+ String.valueOf(i));
-            }else {
-                person = new Person("PERSON-ID-1"+String.valueOf(i), "person-" + String.valueOf(i), "person-name-" + String.valueOf(i), "person-middle-" + String.valueOf(i), "person-last-" + String.valueOf(i),
-                        String.valueOf(getRandomNum(0,9)+1), "person-name-" + String.valueOf(i)+ "@mitest.org", "person-name-" + String.valueOf(i) + "_student", String.valueOf(getRandomNum(0,9)+1),
-                        "LOC-ID-" + getRandomNum(0, 5), generateSource(), "INSTPERSONID"+ String.valueOf(i));
+            for(int j=0; j<batch; j++) {
+                Person person;
+                if(i % 10 < 3) {
+                    person = new Person("PERSON-ID-"+String.valueOf(i), "person-" + String.valueOf(i), "person-name-" + String.valueOf(i), "person-middle-" + String.valueOf(i), "person-last-" + String.valueOf(i),
+                            null, "person-name-" + String.valueOf(i)+ "@mitest.org", "person-name-" + String.valueOf(i) + "_student", String.valueOf(getRandomNum(0,9)+1),
+                            "LOC-ID-" + getRandomNum(0, 5), generateSource(), "INSTPERSONID"+ String.valueOf(i));
+                }else {
+                    person = new Person("PERSON-ID-"+String.valueOf(i), "person-" + String.valueOf(i), "person-name-" + String.valueOf(i), "person-middle-" + String.valueOf(i), "person-last-" + String.valueOf(i),
+                            String.valueOf(getRandomNum(0,9)+1), "person-name-" + String.valueOf(i)+ "@mitest.org", "person-name-" + String.valueOf(i) + "_student", String.valueOf(getRandomNum(0,9)+1),
+                            "LOC-ID-" + getRandomNum(0, 5), generateSource(), "INSTPERSONID"+ String.valueOf(i));
+                }
+                persons.add(person);
+                i++;
             }
-            persons.add(person);
         }
         return persons;
     }

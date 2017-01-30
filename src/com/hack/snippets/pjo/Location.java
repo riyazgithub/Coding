@@ -24,6 +24,4 @@ public class Location extends AbstractRosterEntity {
         data += GenerateData.singleQuote + this.getSource_system_identifier() + GenerateData.singleQuote;
         return data;
     }
-
-
 }
