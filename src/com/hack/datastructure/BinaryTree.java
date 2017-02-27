@@ -1,5 +1,9 @@
 package com.hack.datastructure;
 
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 /**
  * Created by rafthab on 1/9/17.
  */
@@ -46,5 +50,11 @@ public class BinaryTree {
         TreeNode twoone = bt.insertLeft(two, 21);
 
         bt.printTree(BinaryTree.head);
+    }
+
+    @Test
+    public void verifyBinaryTree() {
+
+        Assert.assertEquals(0, 0, "Actual Person count must be 0");
     }
 }
