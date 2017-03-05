@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by rafthab on 5/16/16.
  */
-public class stackUtils {
+public class StackUtils {
 
     public StackNode head = null;
 
@@ -56,7 +56,7 @@ public class stackUtils {
 
     @Test
     public void verifyStackInsert() {
-        stackUtils stackUtils1 = new stackUtils();
+        StackUtils stackUtils1 = new StackUtils();
         stackUtils1.push(1);
         stackUtils1.push(2);
         stackUtils1.push(3);
