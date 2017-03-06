@@ -38,7 +38,7 @@ public class LListAddition {
                 carryOver =0;
             }
             if(sum > 9) {
-                carryOver = sum - 9;
+                carryOver = sum / 10;
                 sum = sum % 10;
             }
             LLNode newNode = new LLNode(sum);
@@ -55,7 +55,10 @@ public class LListAddition {
             if(l2 !=null) {
                 l2 =l2.next;
             }
-
+        }
+        if(carryOver !=0) {
+            LLNode newNode = new LLNode(carryOver);
+            lastNode.next = newNode;
         }
         return  retNode;
     }
@@ -87,6 +90,38 @@ public class LListAddition {
         Assert.assertTrue(retUtils.getIntAt(0) == 7, "Oder dont match for 7");
         Assert.assertTrue(retUtils.getIntAt(1) == 0, "Oder dont match for 0");
         Assert.assertTrue(retUtils.getIntAt(2) == 8, "Oder dont match for 8");
-
     }
+    @Test
+    public void testAdditionWithfinalCarryOver() {
+        LLUtils l1 = new LLUtils();
+        LLUtils l2 = new LLUtils();
+        l1.insertAtHead("3");
+        l1.insertAtHead("4");
+        l1.insertAtHead("2");
+        Assert.assertTrue(l1.getIntAt(0) == 2, "Oder dont match for 2");
+        Assert.assertTrue(l1.getIntAt(2) == 3, "Oder dont match for 3");
+        l2.insertAtHead("7");
+        l2.insertAtHead("6");
+        l2.insertAtHead("5");
+        LLUtils retUtils = new LLUtils();
+        LListAddition lListAddition = new LListAddition();
+        retUtils.head = lListAddition.addTwoNumbers(l1.head, l2.head);
+        Assert.assertTrue(retUtils.getIntAt(0) == 7, "Oder dont match for 7");
+        Assert.assertTrue(retUtils.getIntAt(1) == 0, "Oder dont match for 0");
+        Assert.assertTrue(retUtils.getIntAt(2) == 1, "Oder dont match for 1");
+    }
+    @Test
+    public void testAdditionWithfinalCarryOver1() {
+        LLUtils l1 = new LLUtils();
+        LLUtils l2 = new LLUtils();
+        l1.insertAtHead("9");
+        Assert.assertTrue(l1.getIntAt(0) == 9, "Oder dont match for 2");
+        l2.insertAtHead("9");
+        LLUtils retUtils = new LLUtils();
+        LListAddition lListAddition = new LListAddition();
+        retUtils.head = lListAddition.addTwoNumbers(l1.head, l2.head);
+        Assert.assertTrue(retUtils.getIntAt(0) == 8, "Oder dont match for 7");
+        Assert.assertTrue(retUtils.getIntAt(1) == 1, "Oder dont match for 0");
+    }
+
 }
