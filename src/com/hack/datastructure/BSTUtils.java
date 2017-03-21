@@ -28,6 +28,7 @@ public class BSTUtils {
     public void insert(int nodeValue) {
         if(isEmpty()) {
             this.root = new BSTNode((nodeValue));
+            return;
         }
         this.root = insertHelper(this.root, nodeValue);
     }
@@ -77,6 +78,46 @@ public class BSTUtils {
         }
     }
 
+    public Boolean deleteNode(int nodeValue) {
+        BSTNode findNode = findNodeHelper(this.root, nodeValue);
+        Boolean retbool = false;
+        if(findNode != null) {
+            this.root = deleteNodeHelper(this.root, nodeValue);
+            retbool = true;
+        }
+        return retbool;
+    }
+
+    private BSTNode deleteNodeHelper(BSTNode root1, int deleteNode) {
+        if(root1 == null) {
+            return root1;
+        }
+        if(root1.val > deleteNode) {
+            root1.left = deleteNodeHelper(root1.left,deleteNode);
+        } else if (root1.val < deleteNode) {
+            root1.right = deleteNodeHelper(root1.right, deleteNode);
+        } else {
+            if(root1.left == null) {
+                return root1.right;
+            } else if(root1.right == null) {
+                return root1.left;
+            } else {
+                root1.val = minValue(root1.right);
+                root1.right = deleteNodeHelper(root1.right, root1.val);
+            }
+
+        }
+        return root1;
+    }
+
+    public int minValue(BSTNode root2) {
+
+        while (root2.left !=null) {
+            root2 = root2.left;
+        }
+        return root2.val;
+    }
+
     @Test
     public void testInsert() {
         BSTUtils bstUtils = new BSTUtils();
@@ -97,7 +138,25 @@ public class BSTUtils {
         BSTNode node1 = bstUtils.findNode(11);
         Assert.assertTrue(node1.val == 11, "Node not found !!");
      }
-
+    @Test
+    public void testDeleteNode() {
+        BSTUtils bstUtils = new BSTUtils();
+        // Checking empty
+        Assert.assertTrue(bstUtils.isEmpty(), "The root is not empty at the beginning");
+        bstUtils.insert(6); bstUtils.insert(4);bstUtils.insert(7);bstUtils.insert(3);bstUtils.insert(10);
+        bstUtils.insert(1); bstUtils.insert(11);bstUtils.insert(2);bstUtils.insert(22);bstUtils.insert(5);
+        BSTNode node1 = bstUtils.findNode(11);
+        Assert.assertTrue(node1.val == 11, "Node not found !!");
+        Assert.assertFalse(bstUtils.deleteNode(12), "Deletion Failed");
+        List<Integer> inorder = bstUtils.inOrder();
+        Assert.assertTrue(inorder.size() == 10, "In order size incorrect");
+        bstUtils.deleteNode(22);
+        inorder = bstUtils.inOrder();
+        Assert.assertTrue(inorder.size() == 9, "In order size incorrect");
+        bstUtils.deleteNode(6);
+        inorder = bstUtils.inOrder();
+        Assert.assertTrue(inorder.size() == 8, "In order size incorrect");
+    }
 }
 
 
