@@ -12,12 +12,12 @@ public class pathVariables {
     public static void main(String[] args) {
         String url = "http://test.com/solarSystem/planet/{planet}/moon/{moon}";
 
-// URI (URL) parameters
+// URI (URL) parameters  Path Variable
         Map<String, String> uriParams = new HashMap<String, String>();
         uriParams.put("planet", "Mars");
         uriParams.put("moon", "Phobos");
 
-// Query parameters
+// Query parameters Request Parameter
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url)
                 // Add query parameter
@@ -27,6 +27,7 @@ public class pathVariables {
         UriComponentsBuilder builder1 = UriComponentsBuilder.fromUriString(url);
 
         System.out.println(builder.buildAndExpand(uriParams).toUri());
+        System.out.println(builder.toString());
         System.out.println(builder1.buildAndExpand(uriParams).toUri());
     }
 }
