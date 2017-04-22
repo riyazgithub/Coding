@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f16d3e32-8bdf-42c3-845f-fcd4fbb346dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/hack/leetcode/longestSubString.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/hack/leetcode/longestSubString.java" afterPath="$PROJECT_DIR$/src/com/hack/leetcode/longestSubString.java" />
     </list>
     <list id="40131dd5-58de-499f-9d51-84d2a40226be" name="Rejected commit: Default" comment="Partially done yay not bad&#10;More additions&#10;Testcase changes&#10;Adding inefficient code works though so i am going to move on mostly&#10;Refactoring project" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +34,8 @@
       <file leaf-file-name="longestSubString.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/hack/leetcode/longestSubString.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="498">
+              <caret line="72" column="5" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="72" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -245,7 +245,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="extract.method.default.visibility" value="private" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -889,7 +889,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492800035961</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Completed longest Substring">
+      <created>1492882509583</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1492882509583</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -971,7 +978,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Generate Data&#10;Trying out new stuff which can be used for both cases" />
     <MESSAGE value="Adding pjos&#10;" />
     <MESSAGE value="Converting to data to objects &#10;Lets see if this works ..&#10;" />
     <MESSAGE value="Getting things done" />
@@ -996,7 +1002,8 @@
     <MESSAGE value="Updating GIT" />
     <MESSAGE value="Updating GIT removing webclip" />
     <MESSAGE value="Adding code to parswHTML code it was fun !!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding code to parswHTML code it was fun !!" />
+    <MESSAGE value="Completed longest Substring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed longest Substring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1474,8 +1481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hack/leetcode/longestSubString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+        <state relative-caret-position="498">
+          <caret line="72" column="5" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="72" selection-end-column="5" />
           <folding />
         </state>
       </provider>

@@ -24,15 +24,19 @@ public class longestSubString {
     public static void main(String[] args) {
 //        String input1 = new String("abcabcbb");
         String input1 = new String("pwwkew");
-        char[] arrinput1 = input1.toCharArray();
         longestSubString lon = new longestSubString();
-        HashMap<Character, Integer> gen = lon.generateHT();
+        lon.lengthOfLongestSubstring(input1);
+    }
+
+    public int lengthOfLongestSubstring(String input1) {
+        char[] arrinput1 = input1.toCharArray();
+        HashMap<Character, Integer> gen;
         String longest = new String();
         for (int i = 0; i< arrinput1.length; i++) {
             String tmp = new String ();
-            gen = lon.generateHT();
+            gen = generateHT();
             for(int j = i ; j< arrinput1.length; j++) {
-                if(lon.validateChar(gen, arrinput1[j])) {
+                if(validateChar(gen, arrinput1[j])) {
                     tmp += arrinput1[j];
                 } else {
                     j = arrinput1.length;
@@ -43,7 +47,7 @@ public class longestSubString {
                 longest = tmp;
             }
         }
-        System.out.println("Longest " + longest);
+        return longest.length();
     }
 
     public HashMap<Character, Integer> generateHT() {
