@@ -23,9 +23,9 @@ public class longestSubString {
      */
     public static void main(String[] args) {
 //        String input1 = new String("abcabcbb");
-        String input1 = new String("pwwkew");
+        String input1 = new String("ujipehkppqyyhbwaekjhzspmaqpxwexsnfjtmujbmhbvkxwqjhxlbpzbfpzctwwibgbqcmrqwvlgsjxesuptlqvrhuvasrkt");
         longestSubString lon = new longestSubString();
-        lon.lengthOfLongestSubstring(input1);
+        System.out.println(lon.lengthOfLongestSubstring(input1));
     }
 
     public int lengthOfLongestSubstring(String input1) {
@@ -42,7 +42,6 @@ public class longestSubString {
                     j = arrinput1.length;
                 }
             }
-            System.out.println("Tmp Longest " + tmp);
             if(tmp.length() > longest.length()) {
                 longest = tmp;
             }
@@ -52,23 +51,17 @@ public class longestSubString {
 
     public HashMap<Character, Integer> generateHT() {
         HashMap<Character, Integer> hm = new HashMap<>();
-        int begin = 'a';
-        for(int i =0 ; i<26 ; i++) {
-            hm.put((char)begin, 1);
-            begin++;
-        }
         return hm;
     }
 
     public boolean validateChar(HashMap<Character, Integer> hm , Character c) {
         Integer key = hm.get(c);
-        if(key == null || key == 0) {
-            return false;
-        } else if (key > 0) {
-            key--;
+        if(key == null) {
+            key = 1;
             hm.put(c,key);
             return true;
+        } else{
+            return false;
         }
-        return false;
     }
 }
