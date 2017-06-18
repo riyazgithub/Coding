@@ -8,5 +8,6 @@ public class stringManipulation {
         String str = "Test , testing , ";
         System.out.println(str.lastIndexOf(" , "));
         System.out.println(str.length());
+        System.out.println(String.valueOf(null));
     }
 }
