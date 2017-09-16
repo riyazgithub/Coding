@@ -13,10 +13,11 @@ import java.util.ArrayList;
  * Created by rafthab on 6/16/17.
  */
 public class FileManipulations {
+// /Users/rafthab/Stuff_Work/appDel/TestResultLogs/testpicked
 
-    private static final String FILENAME = "resource/testresults/TestOutput %d/%s";
-    private static final String TARGETDirectories = "resource/testpicked/TestOutput %d";
-    private static final int TOTAL = 10;
+    private static final String FILENAME = "/Users/rafthab/Stuff_Work/appDel/TestResultLogs/testresults/TestOutput %d/%s";
+    private static final String TARGETDirectories = "/Users/rafthab/Stuff_Work/appDel/TestResultLogs/testpicked/TestOutput %d";
+    private static final int TOTAL = 1;
     private static  ArrayList<String> TestCaseFailures = new ArrayList();
 
     public static void main(String[] args) throws IOException {
