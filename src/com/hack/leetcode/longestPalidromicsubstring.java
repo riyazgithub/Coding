@@ -49,7 +49,7 @@ public class longestPalidromicsubstring {
 
     public static void main(String[] args) {
         longestPalidromicsubstring lps = new longestPalidromicsubstring();
-        lps.longestPalindrome("babaaabd");
+        System.out.println("Final " + lps.longestPalindrome("babaaabd"));
     }
 
 }

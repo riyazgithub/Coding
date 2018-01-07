@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sun.invoke.util.VerifyAccess;
 
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Stack;
 
 /**
@@ -13,33 +15,24 @@ public class ValidParanthesis {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
         char[] strArr = s.toCharArray();
-        if(strArr.length % 2 == 1) {
-            return false;
-        }
-        for(char ch : strArr) {
-            if ( ch=='(' || ch == '{' || ch == '[') {
-                st.push(ch);
-            } else  {
-                // check for closing bracket
-                if( ch== ')') {
-                    char tmp = st.pop();
-                    if (tmp != '(') {
-                        return false;
-                    }
-                } else if( ch== ']') {
-                    char tmp = st.pop();
-                    if (tmp != '[') {
-                        return false;
-                    }
-                } if( ch== '}') {
-                    char tmp = st.pop();
-                    if (tmp != '{') {
-                        return false;
-                    }
+        HashMap<Character, Character> hm = new HashMap<>();
+        hm.put('(',')');hm.put('[',']');hm.put('{','}');
+        for(char c :strArr) {
+            if(hm.get(c)!=null) {
+                st.push(c);
+            } else {
+                if (st.size() == 0)
+                    return false;
+                char pop = st.pop();
+                if (hm.get(pop) != c) {
+                    return false;
                 }
-            }
         }
+    }
+    if(st.size() == 0)
         return true;
+
+        return false;
     }
 
     @Test
@@ -54,6 +47,8 @@ public class ValidParanthesis {
         ret = validParanthesis.isValid("({}[)]");
         Assert.assertFalse(ret);
         ret = validParanthesis.isValid("{(){}[]}}");
+        Assert.assertFalse(ret);
+        ret = validParanthesis.isValid("{(){}[]}{}");
         Assert.assertTrue(ret);
     }
 }

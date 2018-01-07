@@ -12,6 +12,10 @@ import java.util.List;
  */
 public class BSTUtils {
 
+    public BSTNode getRoot() {
+        return root;
+    }
+
     BSTNode root;
 
     public BSTUtils() {
@@ -24,6 +28,7 @@ public class BSTUtils {
         }
         return false;
     }
+
 
     public void insert(int nodeValue) {
         if(isEmpty()) {

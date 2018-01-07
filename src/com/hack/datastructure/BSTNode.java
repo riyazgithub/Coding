@@ -6,9 +6,9 @@ package com.hack.datastructure;
  */
 public class BSTNode {
 
-    int val;
-    BSTNode left;
-    BSTNode right;
+    public int val;
+    public BSTNode left;
+    public BSTNode right;
 
     public BSTNode(int nodeValue) {
         this.val = nodeValue;
