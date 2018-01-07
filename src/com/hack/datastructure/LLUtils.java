@@ -7,6 +7,10 @@ import org.testng.annotations.Test;
  * Created by rafthab on 3/5/17.
  */
 public class LLUtils {
+    public LLNode getHead() {
+        return head;
+    }
+
     public LLNode head;
     public boolean isEmpty() {
         if(head == null) {
