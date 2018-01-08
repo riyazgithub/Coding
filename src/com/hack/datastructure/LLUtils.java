@@ -99,6 +99,38 @@ public class LLUtils {
         this.head = revNode;
     }
 
+    // Duplicate of the below one revinplace
+    public void reverseWhile() {
+        LLNode revNode = this.head;
+        LLNode nextNode = revNode.next;
+        revNode.next = null;
+        while(nextNode !=null) {
+            LLNode curr = nextNode;
+            nextNode = nextNode.next;
+            curr.next = revNode;
+            revNode =curr;
+        }
+        this.head = revNode;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void revNodeInPlace() {
         if(this.head !=null) {
             LLNode revNode = this.head;
@@ -165,7 +197,7 @@ public class LLUtils {
         Assert.assertTrue(llUtils.getValueAt(0) == "5", "Oder dont match for 5");
         Assert.assertTrue(llUtils.getValueAt(2) == "3", "Oder dont match for 3");
         Assert.assertTrue(llUtils.getValueAt(4) == "1", "Oder dont match for 1");
-        llUtils.revNodeInPlace();
+        llUtils.reverseWhile();
         Assert.assertTrue(llUtils.getValueAt(4) == "5", "Oder dont match for 5");
         Assert.assertTrue(llUtils.getValueAt(2) == "3", "Oder dont match for 3");
         Assert.assertTrue(llUtils.getValueAt(0) == "1", "Oder dont match for 1");

@@ -19,20 +19,25 @@ public class longestPalidromicsubstring {
     Output: "bb"
     */
     public String longestPalindrome(String s) {
+        if(s.length() == 1) return s;
         String longestPalindromeStr = new String();
         String possiblePalindrome = new String();
         int longestPossibleLen = 1;
         char[] inputStr = s.toCharArray();
-        for (int count = 2; count < inputStr.length; count++) {
-            for(int i = 0 ; i < inputStr.length-count+1; i++) {
-                if(true) {
-                    System.out.println(s.substring(i, i+count) + " " + isPalindrome(inputStr, i, i+count-1));
-//                    Integer.pa
+        for(int i =0; i<inputStr.length-1; i++) {
+            for(int j = i+1; j<inputStr.length; j++) {
+                if(j-i+1 > longestPossibleLen) {
+                    if(isPalindrome(inputStr,i,j)) {
+                        longestPossibleLen = j-i+1;
+                        longestPalindromeStr = s.substring(i,j+1);
+                    }
                 }
             }
         }
+        if(longestPossibleLen == 1) {
+            longestPalindromeStr = s.substring(0,1);
+        }
         return longestPalindromeStr;
-
     }
 
     private boolean isPalindrome(char[] inputChar, int start, int end) {
@@ -49,7 +54,9 @@ public class longestPalidromicsubstring {
 
     public static void main(String[] args) {
         longestPalidromicsubstring lps = new longestPalidromicsubstring();
-        System.out.println("Final " + lps.longestPalindrome("babaaabd"));
+        System.out.println("Final " + lps.longestPalindrome("bb"));
+        System.out.println("Final " + lps.longestPalindrome("geeksskeeg"));
+        System.out.println("Final " + lps.longestPalindrome("abcda"));
     }
 
 }
