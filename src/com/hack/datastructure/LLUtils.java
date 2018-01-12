@@ -114,23 +114,6 @@ public class LLUtils {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void revNodeInPlace() {
         if(this.head !=null) {
             LLNode revNode = this.head;

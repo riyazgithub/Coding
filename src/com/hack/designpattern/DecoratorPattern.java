@@ -10,7 +10,7 @@ interface biriyani {
 class simpleBiriyani implements biriyani {
     @Override
     public String makeBiriyani() {
-        return "Kuska";
+        return "onion tomato ginger garlic clove garam masala ";
     }
 }
 class biriyaniDecorator implements biriyani {

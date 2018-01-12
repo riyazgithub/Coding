@@ -9,5 +9,7 @@ public class Main {
         System.out.println(EnumTeam.BLACK.value);
         String str = "123";
         char[] c2 = str.toCharArray();
+        int i = 1/2;
+
     }
 }
